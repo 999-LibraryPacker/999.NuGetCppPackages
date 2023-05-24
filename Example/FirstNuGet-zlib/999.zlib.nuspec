@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata minClientVersion="2.5">
+    <id>999.zlib</id>
+    <!--版本号？你拉了什么版本你就写啥版本不用我解释把……-->
+    <version>1.2.11</version>
+    <!--作者填写库的原始作者即可。-->
+    <authors>Jean-loup Gailly, Mark Adler</authors>
+    <copyright>(C) 1995-2010 Jean-loup Gailly and Mark Adler</copyright>      
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <!--看开源库自己的协议就可以了。-->
+    <license type="expression">Zlib</license>
+    <licenseUrl>https://licenses.nuget.org/Zlib</licenseUrl>
+    <projectUrl>https://zlib.net/</projectUrl>
+    <!--summary会在搜索界面显示的内容。-->
+    <summary>zlib is a general purpose data compression library.</summary>
+    <!--description它在点击包后，会详细展示的内容-->
+    <description>zlib is a general purpose data compression library.  All the code is
+      thread safe.  The data format used by the zlib library is described by RFCs
+      (Request for Comments) 1950 to 1952 in the files
+      http://www.ietf.org/rfc/rfc1950.txt (zlib format), rfc1951.txt (deflate format)
+      and rfc1952.txt (gzip format).</description>
+    <!--这个只有nuget网站的更新日志显示，不写关系也不大。-->
+    <releaseNotes>- Apply security vulnerability fixes to contrib/infback9 as well
+      - Clean up some text files (carriage returns, trailing space)
+      - Update testzlib, vstudio, masmx64, and masmx86 in contrib [Vollant]</releaseNotes>
+    <!--一般这样就可以了。-->
+    <tags>native nativepackage</tags>
+    <repository type="git" url="https://github.com/madler/zlib.git" branch="master" commit="cacf7f1d4e3d44d871b605da3b647f07d718623f" />
+    <dependencies>
+      <!--注意，这里需要有依赖，因为C++导入源码相对不友好，这个库可以大大简化这个流程
+      所以不要移除这个依赖包，除非你自己打算写很多代码！-->
+      <dependency id="YY.NuGet.Import.Helper" version="1.0.0.4" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src=".\zconf.h;.\zlib.h" target="build\native\zlib"/>
+    <!--把跟目录的其他.h .c文件打包到包里 build\native\src 处，单独目录是因为他们是对外部不可见的-->
+    <file src=".\*.h;.\*.c" target="build\native\src" exclude=".\zconf.h;.\zlib.h"/>
+    <!--注意，999.zlib.targets，名字必须跟id一样！否则不生效-->
+    <file src="..\999.zlib.targets" target="build\native\999.zlib.targets"/>
+  </files>
+</package>

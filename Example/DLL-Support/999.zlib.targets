@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <!--把zlib文件夹加入inlcude列表-->
+    <IncludePath>$(MSBuildThisFileDirectory)zlib;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <!--使用静态链接-->
+      <!--动态库导入-->
+      <PreprocessorDefinitions Condition="'$(zlib_static_ref_mode)' =='dllimport'">ZLIB_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <!--导出为函数-->
+      <PreprocessorDefinitions Condition="'$(zlib_static_ref_mode)' =='dllexport'">ZLIB_DLL;ZLIB_INTERNAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!--dllimport 导入时也是不需要编译的直接用导入库即可，我们强制阻止一下编译。-->
+  <ItemGroup Condition="'$(zlib_static_ref_mode)' !='dllimport'">
+    <!--注意，下面的设置仅影响zlib的相关文件，不影响工程本身-->
+    <NuGetExConnentFiles Include="$(MSBuildThisFileDirectory)src\*.c">
+      <NuGetPackageId>$(MSBuildThisFileName)</NuGetPackageId>
+      <BuildAction>ClCompile</BuildAction>
+      <!--关闭预编译头-->
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <ObjectFileName>$(IntDir)$(MSBuildThisFileName)\</ObjectFileName>
+      <!--关闭视警告为错误，万一项目配置了，这会失败。-->
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <TreatSpecificWarningsAsErrors></TreatSpecificWarningsAsErrors>
+      <!--关闭所有警告，反正是开始库，你去解决警告吗？-->
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <!--保持默认编译行为 .c 编译为 c，其他cpp-->
+      <CompileAs>Default</CompileAs>
+    </NuGetExConnentFiles>
+  </ItemGroup>
+  <ItemGroup>
+    <!-- 属性页配置 -->
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)999.zlib.ui_AD9F2879-322B-4D9D-A026-47D0B4970444.xml" />
+  </ItemGroup>    
+</Project>

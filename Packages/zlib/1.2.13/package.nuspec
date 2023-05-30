@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata minClientVersion="2.5">
+    <id>999.zlib</id>
+    <version>1.2.13</version>
+    <authors>Jean-loup Gailly, Mark Adler</authors>
+    <copyright>(C) 1995-2010 Jean-loup Gailly and Mark Adler</copyright>      
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">Zlib</license>
+    <licenseUrl>https://licenses.nuget.org/Zlib</licenseUrl>
+    <projectUrl>https://zlib.net/</projectUrl>
+    <summary>$summary$</summary>
+    <description>$description$</description>
+    <releaseNotes>
+        * Fix a bug when getting a gzip header extra field with inflateGetHeader(). This remedies CVE-2022-37434.
+        * Fix a bug in block type selection when Z_FIXED used. Now the smallest block type is selected, for better compression.
+        * Fix a configure issue that discarded the provided CC definition.
+        * Correct incorrect inputs provided to the CRC functions. This mitigates a bug in Java.
+        * Repair prototypes and exporting of the new CRC functions.
+        * Fix inflateBack to detect invalid input with distances too far.
+    </releaseNotes>
+    <tags>native nativepackage</tags>
+    <repository type="git" url="https://github.com/madler/zlib.git" branch="master" commit="04f42ceca40f73e2978b50e93806c2a18c1281fc" />
+    <dependencies>
+      <dependency id="YY.NuGet.Import.Helper" version="1.0.0.4" />
+    </dependencies>
+    <contentFiles>
+      <files include="any\any\999.zlib.txt" buildAction="Content" copyToOutput="false"/>
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="$Root$\zconf.h;$Root$\zlib.h" target="build\native\zlib"/>
+    <file src="$Root$\*.h;$Root$\*.c" target="build\native\src" exclude="$Root$\zconf.h;$Root$\zlib.h"/>
+    <file src="..\999.zlib.targets" target="build\native\999.zlib.targets"/>
+    <file src="..\999.zlib.txt" target="contentFiles\any\any\999.zlib.txt"/>
+    <file src="..\999.zlib.txt" target="Content\NuGet\999.zlib.txt"/>
+    <file src="..\999.zlib.ui_AD9F2879-322B-4D9D-A026-47D0B4970444.xml" target="build\native"/>
+  </files>
+</package>

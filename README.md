@@ -76,10 +76,8 @@ nuspec 它描述的NuGet包的一些基本信息（比如说包的名称、描�
   </metadata>
   <files>
     <!--把跟目录的.h .c文件打包到包里 build\native\src 处-->
-    <file src=".\zconf.h" target="build\native\zlib"/>
-    <file src=".\zlib.h" target="build\native\zlib"/>
-    <file src=".\*.h" target="build\native\src" exclude=".\zconf.h;.\zlib.h"/>
-    <file src=".\*.c" target="build\native\src"/>
+    <file src=".\zconf.h;.\zlib.h" target="build\native\zlib"/>
+    <file src=".\*.h;.\*.c" target="build\native\src" exclude=".\zconf.h;.\zlib.h"/>
     <!--注意，999.zlib.targets，名字必须跟id一样！否则不生效-->
     <file src=".\999.zlib.targets" target="build\native\999.zlib.targets"/>
   </files>

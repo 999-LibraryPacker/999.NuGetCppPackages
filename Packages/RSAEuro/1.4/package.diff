@@ -1,0 +1,46 @@
+diff --git a/source/r_random.h b/source/r_random.h
+index f9ee5f3..0517cfe 100644
+--- a/source/r_random.h
++++ b/source/r_random.h
+@@ -18,5 +18,13 @@
+ 	Revision 1.00 - JSAK.
+ */
+ 
++#ifdef __cplusplus
++extern "C" {
++#endif
++
+ int R_GenerateBytes PROTO_LIST
+   ((unsigned char *, unsigned int, R_RANDOM_STRUCT *));
++
++#ifdef __cplusplus
++}
++#endif
+diff --git a/source/rsa.h b/source/rsa.h
+index d6b8c5e..014c748 100644
+--- a/source/rsa.h
++++ b/source/rsa.h
+@@ -18,6 +18,13 @@
+ 	Revision 1.00 - JSAK.
+ */
+ 
++#ifndef _RSA_H_
++#define _RSA_H_
++
++#ifdef __cplusplus
++extern "C" {
++#endif
++
+ int RSAPublicEncrypt PROTO_LIST ((unsigned char *, unsigned int *, unsigned char *, unsigned int,
+     R_RSA_PUBLIC_KEY *, R_RANDOM_STRUCT *));
+ int RSAPrivateEncrypt PROTO_LIST ((unsigned char *, unsigned int *, unsigned char *, unsigned int,
+@@ -26,3 +33,9 @@ int RSAPublicDecrypt PROTO_LIST ((unsigned char *, unsigned int *, unsigned char
+     R_RSA_PUBLIC_KEY *));
+ int RSAPrivateDecrypt PROTO_LIST ((unsigned char *, unsigned int *, unsigned char *, unsigned int,
+     R_RSA_PRIVATE_KEY *));
++
++#ifdef __cplusplus
++}
++#endif
++
++#endif /* _RSA_H_ */

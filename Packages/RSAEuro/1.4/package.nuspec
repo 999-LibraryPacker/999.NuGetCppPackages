@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata minClientVersion="4.0">
+    <id>999.RSAEuro</id>
+    <version>1.4.0.1</version>
+    <authors>mort666</authors>
+    <copyright>Copyright (c) J.S.A.Kapp 1994 - 1996.</copyright>      
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/mort666/RSAEuro</projectUrl>
+    <summary>$summary$</summary>
+    <description>$description$</description>
+    <releaseNotes>
+        * 1.04 Sixth revision, New error types added, fix under windows regarding IDOK define. RSAEUROINFO release stuff added.
+    </releaseNotes>
+    <repository type="git" url="https://github.com/mort666/RSAEuro.git" branch="master" commit="2c09173b1ee86826308f3e3fb623e50b3c8cf158" />
+    <dependencies>
+      <dependency id="YY.NuGet.Import.Helper" version="1.0.0.4" />
+    </dependencies>
+    <contentFiles>
+      <files include="any\any\$id$.txt" buildAction="Content" copyToOutput="false"/>
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="$Root$\source\*" target="build\native\RSAEuro"/>
+    <file src="..\$id$.*" target="build\native"/>
+    <file src="..\..\content.txt" target="contentFiles\any\any\$id$.txt"/>
+    <file src="..\..\content.txt" target="Content\NuGet\$id$.txt"/>
+  </files>
+</package>

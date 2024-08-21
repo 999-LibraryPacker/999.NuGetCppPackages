@@ -1,0 +1,12 @@
+﻿ -p "id=999.RSAEuro"
+ -p "summary=RSAEuro Crypto Library Internet Release version."
+ -p "description=All functions prototypes are the Same as for RSAREF(tm).
+To aid compatibility the source and the files follow the
+same naming conventions that RSAREF(tm) uses.  This should aid
+direct importing to your applications.
+
+This library is legal everywhere outside the US.  And should
+NOT be imported to the US and used there.
+
+This header file contains prototypes, and other definitions used
+in and by RSAEURO."

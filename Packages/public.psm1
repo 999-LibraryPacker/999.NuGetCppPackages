@@ -60,6 +60,7 @@ Function SimplePack($FileUrl, $PublishedHash, $FileName, $SourceRootName)
 
     $SourceRoot = $TmpFileRoot + '\Source'
     $SourceSuccess = $SourceRoot + '\__Successe__'
+    $RootPath = $SourceRoot + '\' + $SourceRootName
 
     if (-not (Test-Path $SourceSuccess))
     {
@@ -74,12 +75,26 @@ Function SimplePack($FileUrl, $PublishedHash, $FileName, $SourceRootName)
 
         # 解压源代码
         ExpandFile $TmpZipFilePath  $SourceRoot
+
+        if (Test-Path 'package.diff')
+        {
+            $PatchPath = (Get-Location).Path + '\\package.diff'
+
+            # 应用patch
+            pushd "$RootPath"
+            &git init
+            &git apply --unsafe-paths "$PatchPath" --ignore-whitespace --whitespace=nowarn
+            if($lastexitcode -ne 0)
+            {
+                throw "应用Patch失败！退出代码：$lastexitcode"
+            }
+            popd
+        }
         mkdir -p $SourceSuccess
     }
     
     # 生成nuget包
-    $SourceRoot += '\' + $SourceRootName;
-    &nuget pack package.nuspec -p "Root=$SourceRoot" "@..\metadata.txt"
+    &nuget pack package.nuspec -p "Root=$RootPath" "@..\metadata.txt"
     if($lastexitcode -ne 0)
     {
         throw "nuget pack package.nuspec失败！退出代码：$lastexitcode"

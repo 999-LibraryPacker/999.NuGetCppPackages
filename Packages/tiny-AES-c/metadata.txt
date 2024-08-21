@@ -1,0 +1,3 @@
+﻿ -p "id=999.tiny-AES-c"
+ -p "summary=Small portable AES128/192/256 in C."
+ -p "description=This is a small and portable implementation of the AES ECB, CTR and CBC encryption algorithms written in C."

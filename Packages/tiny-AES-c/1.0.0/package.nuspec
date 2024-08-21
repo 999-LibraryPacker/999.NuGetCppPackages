@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata minClientVersion="4.0">
+    <id>$id$</id>
+    <version>1.0.0.1</version>
+    <authors>kokke</authors>
+    <copyright>Copyright kokke</copyright>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/kokke/tiny-AES-c/blob/master/unlicense.txt</licenseUrl>      
+    <projectUrl>https://github.com/kokke/tiny-AES-c</projectUrl>
+    <summary>$summary$</summary>
+    <description>$description$</description>
+    <tags>native nativepackage</tags>      
+    <repository type="git" url="https://github.com/kokke/tiny-AES-c.git" branch="master" commit="e72b6eff0884673997d0ca6385169bbd9b31936d" />
+    <dependencies>
+      <dependency id="YY.NuGet.Import.Helper" version="1.0.0.4" />
+    </dependencies>
+    <contentFiles>
+      <files include="any\any\$id$.txt" buildAction="Content" copyToOutput="false"/>
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="$Root$\aes.*" target="build\native\include\tiny-AES-c"/>
+    <file src="..\$id$.*" target="build\native"/>
+    <file src="..\..\content.txt" target="contentFiles\any\any\$id$.txt"/>
+    <file src="..\..\content.txt" target="Content\NuGet\$id$.txt"/>
+  </files>
+</package>

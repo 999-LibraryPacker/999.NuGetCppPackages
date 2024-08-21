@@ -1,0 +1,14 @@
+diff --git a/source/rsaeuro.h b/source/rsaeuro.h
+index 26bbca0..221e650 100755
+--- a/source/rsaeuro.h
++++ b/source/rsaeuro.h
+@@ -69,7 +69,9 @@ extern "C" {
+ 	 PGP 2.6.2 Now allows 2048-bit keys changing below will allow this.
+      It does lengthen key generation slightly if the value is increased.
+ */
++#ifndef MAX_RSA_MODULUS_BITS
+ #define MAX_RSA_MODULUS_BITS 1024
++#endif
+ #define MAX_RSA_MODULUS_LEN ((MAX_RSA_MODULUS_BITS + 7) / 8)
+ #define MAX_RSA_PRIME_BITS ((MAX_RSA_MODULUS_BITS + 1) / 2)
+ #define MAX_RSA_PRIME_LEN ((MAX_RSA_PRIME_BITS + 7) / 8)

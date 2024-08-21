@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectSchemaDefinitions
+  xmlns="http://schemas.microsoft.com/build/2009/properties"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+  <!--这个名字记得随机一下-->
+  <Rule Name="CuyuTeam_8BDC4EF9-B876-4EE5-B3F3-965C30C0D5B3"
+        PageTemplate="tool"
+        DisplayName="NuGet程序包设置">
+    <Rule.Categories>
+      <Category Name="_999_RSAEuro" DisplayName="RSAEuro" />
+    </Rule.Categories>
+
+    <Rule.DataSource>
+      <DataSource Persistence="ProjectFile"
+                  ItemType=""
+                  Label="Configuration"
+                  HasConfigurationCondition="true"/>
+    </Rule.DataSource>
+
+    <EnumProperty
+      Name="_999_RSAEuro_MAX_RSA_MODULUS_BITS"
+      Category="_999_RSAEuro"
+      DisplayName="RSAEuro最大RAS密钥长度"
+      Description="更长的密钥长度可以带来更高的安全性。">
+      <EnumValue
+        Name="1024"
+        DisplayName="1024位（更快速度）"
+        IsDefault="true"/>
+      <EnumValue
+        Name="2048"
+        DisplayName="2048位（更高安全性）"/>
+    </EnumProperty>
+  </Rule>
+</ProjectSchemaDefinitions>

@@ -75,18 +75,23 @@ Function SimplePack($FileUrl, $PublishedHash, $FileName, $SourceRootName)
 
         # 解压源代码
         ExpandFile $TmpZipFilePath  $SourceRoot
+        # 可以使用 "git diff HEAD > my.diff" 生成 diff文件
+        $DiffFind = (Get-Location).Path + '\*.diff'
 
-        if (Test-Path 'package.diff')
+        $DiffFiles = Get-ChildItem -Path $DiffFind
+        if ($DiffFiles.Length -ne 0)
         {
-            $PatchPath = (Get-Location).Path + '\\package.diff'
-
             # 应用patch
             pushd "$RootPath"
             &git init
-            &git apply --unsafe-paths "$PatchPath" --ignore-whitespace --whitespace=nowarn
-            if($lastexitcode -ne 0)
+            foreach ($DiffFile in $DiffFiles)
             {
-                throw "应用Patch失败！退出代码：$lastexitcode"
+                $PatchPath = $DiffFile.FullName
+                &git apply --unsafe-paths "$PatchPath" --ignore-whitespace --whitespace=nowarn
+                if($lastexitcode -ne 0)
+                {
+                    throw "应用Patch失败！退出代码：$lastexitcode"
+                }
             }
             popd
         }

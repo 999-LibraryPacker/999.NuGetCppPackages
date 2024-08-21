@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata minClientVersion="4.0">
     <id>999.RSAEuro</id>
-    <version>1.4.0.1</version>
+    <version>1.4.0.2</version>
     <authors>mort666</authors>
     <copyright>Copyright (c) J.S.A.Kapp 1994 - 1996.</copyright>      
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectUrl>https://github.com/mort666/RSAEuro</projectUrl>
-    <summary>$summary$</summary>
+    <summary>对应官方版本：1.04。$summary$</summary>
     <description>$description$</description>
     <releaseNotes>
         * 1.04 Sixth revision, New error types added, fix under windows regarding IDOK define. RSAEUROINFO release stuff added.

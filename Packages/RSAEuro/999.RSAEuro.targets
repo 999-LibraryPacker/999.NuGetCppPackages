@@ -3,6 +3,11 @@
   <PropertyGroup>
     <IncludePath>$(MSBuildThisFileDirectory);$(IncludePath)</IncludePath>
   </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions Condition="'$(_999_RSAEuro_MAX_RSA_MODULUS_BITS)' !=''">MAX_RSA_MODULUS_BITS=$(_999_RSAEuro_MAX_RSA_MODULUS_BITS);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>    
   <ItemGroup>
     <!--注意，下面的设置仅影响zlib的相关文件，不影响工程本身-->
     <NuGetExConnentFiles Include="$(MSBuildThisFileDirectory)RSAEuro\*.c">
@@ -22,4 +27,8 @@
       <CompileAs>Default</CompileAs>
     </NuGetExConnentFiles>
   </ItemGroup>
+  <ItemGroup>
+    <!-- 属性页配置 -->
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)999.RSAEuro.ui_8BDC4EF9-B876-4EE5-B3F3-965C30C0D5B3.xml" />
+  </ItemGroup>    
 </Project>

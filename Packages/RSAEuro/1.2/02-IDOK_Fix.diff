@@ -1,0 +1,310 @@
+diff --git a/source/desc.c b/source/desc.c
+index 99368fd..a62685b 100755
+--- a/source/desc.c
++++ b/source/desc.c
+@@ -417,7 +417,7 @@ unsigned int len;
+ 	R_memset((POINTER)inputBlock, 0, sizeof(inputBlock));
+ 	R_memset((POINTER)work, 0, sizeof(work));
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ void DES_CBCRestart(context)
+@@ -509,7 +509,7 @@ unsigned int len;               /* length of input and output blocks */
+ 	R_memset((POINTER)inputBlock, 0, sizeof(inputBlock));
+ 	R_memset((POINTER)work, 0, sizeof(work));
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ void DESX_CBCRestart(context)
+diff --git a/source/prime.c b/source/prime.c
+index bf9ace6..76d38e2 100755
+--- a/source/prime.c
++++ b/source/prime.c
+@@ -91,7 +91,7 @@ R_RANDOM_STRUCT *randomStruct; /* random structure */
+         NN_Add(a, a, d, digits);
+     }
+ 
+-    return(IDOK);
++    return(ID_OK);
+ }
+ 
+ /* Returns nonzero iff a is a probable prime.
+diff --git a/source/r_dh.c b/source/r_dh.c
+index e438f8d..ee504bb 100755
+--- a/source/r_dh.c
++++ b/source/r_dh.c
+@@ -81,7 +81,7 @@ R_RANDOM_STRUCT *randomStruct;             /* random structure */
+ 	NN_Encode(params->prime, params->primeLen, p, pDigits);
+ 	NN_Encode(params->generator, params->generatorLen, g, pDigits);
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ /* Setup Diffie-Hellman key agreement. Public value has same length
+@@ -123,7 +123,7 @@ R_RANDOM_STRUCT *randomStruct;                          /* random structure */
+ 
+ 	R_memset((POINTER)x, 0, sizeof(x));
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ /* Computes agreed key from the other party's public value, a private
+@@ -164,5 +164,5 @@ R_DH_PARAMS *params;                           /* Diffie-Hellman parameters */
+ 	R_memset((POINTER)x, 0, sizeof(x));
+ 	R_memset((POINTER)z, 0, sizeof(z));
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+\ No newline at end of file
+diff --git a/source/r_encode.c b/source/r_encode.c
+index 69fe820..3212c40 100755
+--- a/source/r_encode.c
++++ b/source/r_encode.c
+@@ -109,7 +109,7 @@ unsigned int blockLen;          /* length of block */
+ 
+ 	if(blockLen < 1) {
+ 		*encodedBlockLen = 0;
+-		return (IDOK);
++		return (ID_OK);
+ 	}
+ 
+ 	*encodedBlockLen = 0;
+@@ -121,7 +121,7 @@ unsigned int blockLen;          /* length of block */
+ 		*encodedBlockLen += 4;
+ 	}
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ int R_DecodePEMBlock (outbuf, outlength, inbuf, inlength)
+@@ -140,7 +140,7 @@ unsigned int inlength;          /* length of encoded block */
+ 
+ 	if(inlength < 1) {
+ 		*outlength = 0;
+-		return (IDOK);
++		return (ID_OK);
+ 	}
+ 
+ 
+@@ -184,7 +184,7 @@ unsigned int inlength;          /* length of encoded block */
+ 	}
+ 
+ 	*outlength = length;
+-	return(IDOK);   /* normal return */
++	return(ID_OK);   /* normal return */
+ 
+ }
+ 
+diff --git a/source/r_enhanc.c b/source/r_enhanc.c
+index 03e4d4f..2e48627 100755
+--- a/source/r_enhanc.c
++++ b/source/r_enhanc.c
+@@ -103,7 +103,7 @@ int digesttype;                 /* message-digest algorithm */
+ 		return(RE_DIGEST_ALGORITHM);
+ 	}
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ int R_DigestUpdate(context, partIn, partInLen)
+@@ -132,7 +132,7 @@ unsigned int partInLen;         /* length of next data part */
+ 		return(RE_DIGEST_ALGORITHM);
+ 	}
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ int R_DigestFinal(context, digest, digestLen)
+@@ -163,7 +163,7 @@ unsigned int *digestLen;        /* length of message digest */
+ 		return(RE_DIGEST_ALGORITHM);
+ 	}
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ /* Signing a file using SHS is not allowed for now */
+@@ -336,7 +336,7 @@ unsigned int partInLen;         /* length of next data part */
+ 		*partOutLen = 0;
+ 		R_memcpy((POINTER)(context->buffer + context->bufferLen), (POINTER)partIn, partInLen);
+         context->bufferLen += partInLen;    /* Bug Fix - 02/09/95, SK */
+-		return(IDOK);
++		return(ID_OK);
+ 	}
+ 
+ 	/* Fill the buffer and encrypt. */
+@@ -360,7 +360,7 @@ unsigned int partInLen;         /* length of next data part */
+ 	/* Length now less than 8, so copy remainder to buffer for next time. */
+ 	R_memcpy((POINTER)context->buffer, partIn, context->bufferLen = partInLen);
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ /* Assume partOut buffer is at least 8 bytes. */
+@@ -384,7 +384,7 @@ unsigned int *partOutLen;       /* length of last encrypted data part */
+ 	RestartCipher(context);
+ 	context->bufferLen = 0;
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ /* Assume caller has already ASCII decoded the encryptedKey if necessary. */
+@@ -449,7 +449,7 @@ unsigned int partInLen;         /* length of next encrypted data part */
+ 		*partOutLen = 0;
+ 		R_memcpy((POINTER)(context->buffer + context->bufferLen), partIn, partInLen);
+ 		context->bufferLen += partInLen;
+-		return(IDOK);
++		return(ID_OK);
+ 	}
+ 
+ 	/* Fill the buffer and decrypt.  We know that there will be more left
+@@ -476,7 +476,7 @@ unsigned int partInLen;         /* length of next encrypted data part */
+ 
+ 	R_memcpy((POINTER)context->buffer, partIn, context->bufferLen = partInLen);
+ 
+-	return (IDOK);
++	return (ID_OK);
+ }
+ 
+ /* Assume partOut buffer is at least 7 bytes. */
+@@ -555,7 +555,7 @@ R_RSA_PRIVATE_KEY *privateKey;         /* signer's RSA private key */
+ 
+ 	R_EncodePEMBlock(encodedSignature, encodedSignatureLen, signature, signatureLen);
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ int R_SignBlock(signature, signatureLen, block, blockLen, digestAlgorithm, privateKey)
+@@ -838,7 +838,7 @@ unsigned int inputLen;            /* length */
+ 
+ 	R_memset(encryptedPart, 0, sizeof(encryptedPart));
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ /* Assumes that digestAlgorithm is DA_MD2, DA_MD4 or DA_MD5 and
+@@ -865,7 +865,7 @@ unsigned char *originaldigestInfo;
+ unsigned char *digestInfo;
+ {
+ 	return((originaldigestInfo[DIGEST_INFO_A_LEN] ==
+-		digestInfo[DIGEST_INFO_A_LEN]) ? IDOK : RE_SIGNATURE);
++		digestInfo[DIGEST_INFO_A_LEN]) ? ID_OK : RE_SIGNATURE);
+ }
+ 
+ static int CipherInit(context, encryptionAlgorithm, key, iv, encrypt)
+@@ -889,7 +889,7 @@ int encrypt;
+ 	default:
+ 		return (RE_ENCRYPTION_ALGORITHM);
+ 	}
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ /* Assume len is a multiple of 8.
+diff --git a/source/r_random.c b/source/r_random.c
+index 3bd8346..23f5b73 100755
+--- a/source/r_random.c
++++ b/source/r_random.c
+@@ -62,7 +62,7 @@ R_RANDOM_STRUCT *random;        /* new random structure */
+ 	random->outputAvailable = 0;
+ 	random->bytesNeeded = RANDOM_BYTES_RQ;
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ 
+@@ -98,7 +98,7 @@ unsigned int len;               /* length of block */
+ 	R_memset((POINTER)digest, 0, sizeof (digest));
+ 	j = 0;
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ /* Get the number of seed byte still required by the object */
+@@ -109,7 +109,7 @@ R_RANDOM_STRUCT *random;        /* random structure */
+ {
+ 	*bytesNeeded = random->bytesNeeded;
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ int R_GenerateBytes(block, len, random)
+@@ -146,7 +146,7 @@ R_RANDOM_STRUCT *random;                          /* random structure */
+ 	R_memcpy((POINTER)block, (POINTER)&random->output[16-avail], len);
+ 	random->outputAvailable = avail - len;
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ /* Clear Random object when finished. */
+diff --git a/source/rsa.c b/source/rsa.c
+index 212fb9a..4624acd 100755
+--- a/source/rsa.c
++++ b/source/rsa.c
+@@ -130,7 +130,7 @@ R_RSA_PUBLIC_KEY *publicKey;    /* RSA public key */
+ 
+ 	R_memset((POINTER)pkcsBlock, 0, sizeof(pkcsBlock));
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ /* RSA encryption, according to RSADSI's PKCS #1. */
+@@ -221,7 +221,7 @@ R_RSA_PRIVATE_KEY *privateKey;  /* RSA private key */
+ 	/* Clear sensitive information. */
+ 	R_memset((POINTER)pkcsBlock, 0, sizeof(pkcsBlock));
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ /* Raw RSA public-key operation. Output has same length as modulus.
+@@ -265,7 +265,7 @@ R_RSA_PUBLIC_KEY *publicKey;    /* RSA public key */
+ 	R_memset((POINTER)c, 0, sizeof(c));
+ 	R_memset((POINTER)m, 0, sizeof(m));
+ 
+-	return(IDOK);
++	return(ID_OK);
+ }
+ 
+ /* Raw RSA private-key operation. Output has same length as modulus.
+@@ -353,5 +353,5 @@ R_RSA_PRIVATE_KEY *privateKey;  /* RSA private key */
+ 	R_memset((POINTER)qInv, 0, sizeof(qInv));
+ 	R_memset((POINTER)t, 0, sizeof(t));
+ */
+-	return(IDOK);
++	return(ID_OK);
+ }
+diff --git a/source/rsaeuro.h b/source/rsaeuro.h
+index 26bbca0..e9167e2 100755
+--- a/source/rsaeuro.h
++++ b/source/rsaeuro.h
+@@ -122,8 +122,8 @@ extern "C" {
+ 
+ /* Internal Error Codes */
+ 
+-#define IDOK    0
+-#define IDERROR 1
++#define ID_OK    0
++#define ID_ERROR 1
+ 
+ /* Internal defs. */
+ 

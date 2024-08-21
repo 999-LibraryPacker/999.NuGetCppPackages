@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectSchemaDefinitions
+  xmlns="http://schemas.microsoft.com/build/2009/properties"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+  <!--这个名字记得随机一下-->
+  <Rule Name="CuyuTeam_5808A915-E56A-4731-BC34-5E325BF47F65"
+        PageTemplate="tool"
+        DisplayName="NuGet程序包设置">
+    <Rule.Categories>
+      <Category Name="jsoncpp_static" DisplayName="JsonCpp" />
+    </Rule.Categories>
+
+    <Rule.DataSource>
+      <DataSource Persistence="ProjectFile"
+                  ItemType=""
+                  Label="Configuration"
+                  HasConfigurationCondition="true"/>
+    </Rule.DataSource>
+
+    <EnumProperty
+      Name="jsoncpp_static_ref_mode"
+      Category="jsoncpp_static"
+      DisplayName="引用模式"
+      Description="选择引用模式，推荐静态库。">
+      <EnumValue
+        Name="static"
+        DisplayName="以 静态库 使用本库（Static）"
+        IsDefault="true"/>
+      <EnumValue
+        Name="dllimport"
+        DisplayName="以 共享DLL 使用本库（dllimport）"/>
+      <EnumValue
+        Name="dllexport"
+        DisplayName="向 共享DLL 导出本库（dllexport）"/>
+    </EnumProperty>
+  </Rule>
+</ProjectSchemaDefinitions>

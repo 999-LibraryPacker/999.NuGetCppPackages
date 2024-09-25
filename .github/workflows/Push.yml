@@ -16,7 +16,7 @@ jobs:
         PackageName: ${{ inputs.PackageName }}
         PackageVersions: ${{ inputs.PackageVersions }}
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: 打包
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -29,7 +29,7 @@ jobs:
               popd
           }
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
         path: |
             Packages\${{env.PackageName}}\*\*.nupkg

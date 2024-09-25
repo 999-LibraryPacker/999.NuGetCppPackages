@@ -2,19 +2,20 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata minClientVersion="4.0">
     <id>$id$</id>
-    <version>0.5.0.1</version>
+    <version>0.10.6</version>
     <authors>Baptiste Lepilleur</authors>
-    <copyright>Copyright 2007-2011 Baptiste Lepilleur</copyright>
+    <copyright>Copyright Baptiste Lepilleur</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <licenseUrl>https://github.com/open-source-parsers/jsoncpp/blob/svn-release-0.5.0/LICENSE</licenseUrl>      
+    <licenseUrl>https://github.com/open-source-parsers/jsoncpp/blob/0.10.6/LICENSE</licenseUrl>      
     <projectUrl>https://github.com/open-source-parsers/jsoncpp</projectUrl>
     <summary>$summary$</summary>
-    <description>$description$</description>
-    <tags>native nativepackage</tags>      
+    <description>官方版本：0.10.6
+$description$</description>
+    <tags>native nativepackage</tags>
     <releaseNotes>
-        * Release 0.5.0
+        * Release 0.10.6
     </releaseNotes>
-    <repository type="git" url="https://github.com/open-source-parsers/jsoncpp.git" branch="svn-release-0.5.0" commit="710c73a9503c7cacca533f679957766d5909bc83" />
+    <repository type="git" url="https://github.com/open-source-parsers/jsoncpp.git" branch="0.10.6" commit="0e3fffd242db0eb158410411616886e0c8f29c4f" />
     <dependencies>
       <dependency id="YY.NuGet.Import.Helper" version="1.0.0.4" />
     </dependencies>

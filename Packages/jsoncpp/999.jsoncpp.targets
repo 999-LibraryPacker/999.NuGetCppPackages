@@ -33,6 +33,7 @@
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <!--保持默认编译行为 .c 编译为 c，其他cpp-->
       <CompileAs>Default</CompileAs>
+      <LanguageStandard>Default</LanguageStandard>
     </NuGetExConnentFiles>
   </ItemGroup>
   <ItemGroup>

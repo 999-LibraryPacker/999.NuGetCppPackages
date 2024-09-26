@@ -1,0 +1,7 @@
+﻿ -p "id=999.Detours"
+ -p "summary=Detours is a software package for monitoring and instrumenting API calls on Windows."
+ -p "description=Detours is a software package for monitoring and instrumenting API calls on Windows. Detours has been used by many ISVs and is also used by product teams at Microsoft. Detours is now available under a standard open source license (MIT). This simplifies licensing for programmers using Detours and allows the community to support Detours using open source tools and processes.
+
+Detours is compatible with the Windows NT family of operating systems: Windows NT, Windows XP, Windows Server 2003, Windows 7, Windows 8, and Windows 10. It cannot be used by Window Store apps because Detours requires APIs not available to those applications. This repo contains the source code for version 4.0.1 of Detours.
+
+For technical documentation on Detours, see the Detours Wiki. For directions on how to build and run samples, see the samples README.txt file."

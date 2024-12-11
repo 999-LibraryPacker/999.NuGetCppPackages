@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata minClientVersion="4.0">
+    <id>$id$</id>
+    <version>4.0.2-Beta1</version>
+    <authors>Microsoft</authors>
+    <copyright>Copyright (c) Microsoft Corporation. All rights reserved.</copyright>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>   
+    <projectUrl>https://github.com/microsoft/Detours</projectUrl>
+    <summary>$summary$</summary>
+    <description>官方版本：main分支，2022-7-25代码
+$description$</description>
+    <tags>native nativepackage</tags>
+    <releaseNotes>
+    </releaseNotes>
+    <repository type="git" url="https://github.com/microsoft/Detours.git" branch="main" commit="4b8c659f549b0ab21cf649377c7a84eb708f5e68" />
+    <dependencies>
+      <dependency id="YY.NuGet.Import.Helper" version="1.0.0.4" />
+    </dependencies>
+    <contentFiles>
+      <files include="any\any\$id$.txt" buildAction="Content" copyToOutput="false"/>
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="$Root$\src\**" target="build\native\Detours" exclude="**\src\Makefile"/>
+    <file src="..\$id$.*" target="build\native"/>
+    <file src="..\..\content.txt" target="contentFiles\any\any\$id$.txt"/>
+    <file src="..\..\content.txt" target="Content\NuGet\$id$.txt"/>
+  </files>
+</package>

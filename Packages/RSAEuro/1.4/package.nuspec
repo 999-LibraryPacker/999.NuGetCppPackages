@@ -7,14 +7,15 @@
     <copyright>Copyright (c) J.S.A.Kapp 1994 - 1996.</copyright>      
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectUrl>https://github.com/mort666/RSAEuro</projectUrl>
-    <summary>对应官方版本：1.04。$summary$</summary>
-    <description>$description$</description>
+    <summary>$summary$</summary>
+    <description>对应官方版本：1.04
+$description$</description>
     <releaseNotes>
         * 1.04 Sixth revision, New error types added, fix under windows regarding IDOK define. RSAEUROINFO release stuff added.
     </releaseNotes>
     <repository type="git" url="https://github.com/mort666/RSAEuro.git" branch="master" commit="2c09173b1ee86826308f3e3fb623e50b3c8cf158" />
     <dependencies>
-      <dependency id="YY.NuGet.Import.Helper" version="1.0.0.4" />
+      <dependency id="YY.NuGet.Import.Helper" version="$ImportHelperVersion$" />
     </dependencies>
     <contentFiles>
       <files include="any\any\$id$.txt" buildAction="Content" copyToOutput="false"/>

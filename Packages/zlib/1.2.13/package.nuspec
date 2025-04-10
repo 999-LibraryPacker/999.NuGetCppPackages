@@ -10,7 +10,8 @@
     <licenseUrl>https://licenses.nuget.org/Zlib</licenseUrl>
     <projectUrl>https://zlib.net/</projectUrl>
     <summary>$summary$</summary>
-    <description>$description$</description>
+    <description>对应官方版本：1.2.13
+$description$</description>
     <releaseNotes>
         * Fix a bug when getting a gzip header extra field with inflateGetHeader(). This remedies CVE-2022-37434.
         * Fix a bug in block type selection when Z_FIXED used. Now the smallest block type is selected, for better compression.
@@ -22,7 +23,7 @@
     <tags>native nativepackage</tags>
     <repository type="git" url="https://github.com/madler/zlib.git" branch="master" commit="04f42ceca40f73e2978b50e93806c2a18c1281fc" />
     <dependencies>
-      <dependency id="YY.NuGet.Import.Helper" version="1.0.0.4" />
+      <dependency id="YY.NuGet.Import.Helper" version="$ImportHelperVersion$" />
     </dependencies>
     <contentFiles>
       <files include="any\any\999.zlib.txt" buildAction="Content" copyToOutput="false"/>

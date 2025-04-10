@@ -9,14 +9,15 @@
     <licenseUrl>https://github.com/open-source-parsers/jsoncpp/blob/svn-release-0.5.0/LICENSE</licenseUrl>      
     <projectUrl>https://github.com/open-source-parsers/jsoncpp</projectUrl>
     <summary>$summary$</summary>
-    <description>$description$</description>
+    <description>对应官方版本：0.5.0
+$description$</description>
     <tags>native nativepackage</tags>      
     <releaseNotes>
         * Release 0.5.0
     </releaseNotes>
     <repository type="git" url="https://github.com/open-source-parsers/jsoncpp.git" branch="svn-release-0.5.0" commit="710c73a9503c7cacca533f679957766d5909bc83" />
     <dependencies>
-      <dependency id="YY.NuGet.Import.Helper" version="1.0.0.4" />
+      <dependency id="YY.NuGet.Import.Helper" version="$ImportHelperVersion$" />
     </dependencies>
     <contentFiles>
       <files include="any\any\$id$.txt" buildAction="Content" copyToOutput="false"/>

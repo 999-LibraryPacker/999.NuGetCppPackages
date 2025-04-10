@@ -9,11 +9,12 @@
     <licenseUrl>https://github.com/kokke/tiny-AES-c/blob/master/unlicense.txt</licenseUrl>      
     <projectUrl>https://github.com/kokke/tiny-AES-c</projectUrl>
     <summary>$summary$</summary>
-    <description>$description$</description>
+    <description>对应官方版本：1.0.0
+$description$</description>
     <tags>native nativepackage</tags>      
     <repository type="git" url="https://github.com/kokke/tiny-AES-c.git" branch="master" commit="e72b6eff0884673997d0ca6385169bbd9b31936d" />
     <dependencies>
-      <dependency id="YY.NuGet.Import.Helper" version="1.0.0.4" />
+      <dependency id="YY.NuGet.Import.Helper" version="$ImportHelperVersion$" />
     </dependencies>
     <contentFiles>
       <files include="any\any\$id$.txt" buildAction="Content" copyToOutput="false"/>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata minClientVersion="4.0">
+    <id>$id$</id>
+    <version>1.9.5</version>
+    <authors>Baptiste Lepilleur</authors>
+    <copyright>Copyright Baptiste Lepilleur</copyright>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/open-source-parsers/jsoncpp/blob/1.9.5/LICENSE</licenseUrl>      
+    <projectUrl>https://github.com/open-source-parsers/jsoncpp</projectUrl>
+    <summary>$summary$</summary>
+    <description>官方版本：1.9.5
+$description$</description>
+    <tags>native nativepackage</tags>
+    <releaseNotes>
+        * Release 1.9.5
+        * Minor bug-fixes (including for cmake)
+        * Support for Bazel
+        * Dropped compile-time deprecation warnings
+    </releaseNotes>
+    <repository type="git" url="https://github.com/open-source-parsers/jsoncpp.git" branch="master" commit="5defb4ed1a4293b8e2bf641e16b156fb9de498cc" />
+    <dependencies>
+      <dependency id="YY.NuGet.Import.Helper" version="1.0.1" />
+    </dependencies>
+    <contentFiles>
+      <files include="any\any\$id$.txt" buildAction="Content" copyToOutput="false"/>
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="$Root$\include\**" target="build\native\include" exclude="**\*.txt;**\*.cmake"/>
+    <file src="$Root$\src\lib_json\*" target="build\native\src\lib_json" exclude="**\sconscript;**\*.txt;**\*.h.in"/>      
+    <file src="..\$id$.*" target="build\native"/>
+    <file src="..\..\content.txt" target="contentFiles\any\any\$id$.txt"/>
+    <file src="..\..\content.txt" target="Content\NuGet\$id$.txt"/>
+  </files>
+</package>

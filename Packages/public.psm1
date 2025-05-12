@@ -99,7 +99,7 @@ Function SimplePack($FileUrl, $PublishedHash, $FileName, $SourceRootName)
     }
     
     # 生成nuget包
-    &nuget pack package.nuspec -p "ImportHelperVersion=1.0.1" -p "Root=$RootPath" "@..\metadata.txt"
+    &nuget pack package.nuspec -p "ImportHelperVersion=1.0.2" -p "Root=$RootPath" "@..\metadata.txt"
     if($lastexitcode -ne 0)
     {
         throw "nuget pack package.nuspec失败！退出代码：$lastexitcode"

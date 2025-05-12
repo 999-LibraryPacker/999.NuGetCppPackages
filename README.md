@@ -71,7 +71,7 @@ nuspec 它描述的NuGet包的一些基本信息（比如说包的名称、描�
     <dependencies>
       <!--注意，这里需要有依赖，因为C++导入源码相对不友好，这个库可以大大简化这个流程
       所以不要移除这个依赖包，除非你自己打算写很多代码！-->
-      <dependency id="YY.NuGet.Import.Helper" version="1.0.0.4" />
+      <dependency id="YY.NuGet.Import.Helper" version="1.0.2" />
     </dependencies>
   </metadata>
   <files>

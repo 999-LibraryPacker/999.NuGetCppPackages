@@ -1,0 +1,19 @@
+diff --git a/source/r_random.c b/source/r_random.c
+index bbd862f..54404ad 100644
+--- a/source/r_random.c
++++ b/source/r_random.c
+@@ -188,12 +188,12 @@ R_RANDOM_STRUCT *random;                                /* random structure */
+         temp = subrand(t);              /* use special routine to produce seed */
+ 
+         R_RandomUpdate(random, (POINTER)&temp, sizeof(UINT4));
+-		R_RandomUpdate(random, (POINTER)gmt, sizeof(struct tm));
++		if (gmt) R_RandomUpdate(random, (POINTER)gmt, sizeof(struct tm));
+         R_RandomUpdate(random, (POINTER)&cnow, sizeof(clock_t));
+ 	}
+ 
+     /* Clean Up time related data */
+-	R_memset((POINTER)gmt, 0, sizeof(struct tm));
++	if (gmt) R_memset((POINTER)gmt, 0, sizeof(struct tm));
+ 	cnow = 0;
+ 	t = 0;
+     temp = 0;

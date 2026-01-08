@@ -1,0 +1,19 @@
+diff --git a/source/r_random.c b/source/r_random.c
+index 3bd8346..a519803 100755
+--- a/source/r_random.c
++++ b/source/r_random.c
+@@ -180,12 +180,12 @@ R_RANDOM_STRUCT *random;                                /* random structure */
+ 		gmt = gmtime(&t);
+ 		cnow = clock();
+ 
+-		R_RandomUpdate(random, (POINTER)gmt, sizeof(struct tm));
++		if (gmt) R_RandomUpdate(random, (POINTER)gmt, sizeof(struct tm));
+ 		R_RandomUpdate(random, &cnow, sizeof(clock_t));
+ 	}
+ 
+ 	/* Clean Up time data */
+-	R_memset((POINTER)gmt, 0, sizeof(struct tm));
++	if (gmt) R_memset((POINTER)gmt, 0, sizeof(struct tm));
+ 	cnow = 0;
+ 	t = 0;
+ }

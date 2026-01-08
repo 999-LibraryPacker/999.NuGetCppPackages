@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata minClientVersion="4.0">
     <id>999.RSAEuro</id>
-    <version>1.2.0.1</version>
+    <version>1.2.0.2</version>
     <authors>mort666</authors>
     <copyright>Copyright (c) J.S.A.Kapp 1994 - 1996.</copyright>      
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

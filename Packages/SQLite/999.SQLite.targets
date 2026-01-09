@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IncludePath>$(MSBuildThisFileDirectory)include;$(IncludePath)</IncludePath>
+  </PropertyGroup> 
+  <ItemGroup>
+    <NuGetExConnentFiles Include="$(MSBuildThisFileDirectory)include\sqlite3.c">
+      <NuGetPackageId>$(MSBuildThisFileName)</NuGetPackageId>
+      <BuildAction>ClCompile</BuildAction>
+      <!--关闭预编译头-->
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <ObjectFileName>$(IntDir)$(MSBuildThisFileName)\</ObjectFileName>
+      <!--关闭视警告为错误，万一项目配置了，这会失败。-->
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <TreatSpecificWarningsAsErrors></TreatSpecificWarningsAsErrors>
+      <!--关闭所有警告，反正是开始库，你去解决警告吗？-->
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <!--保持默认编译行为 .c 编译为 c，其他cpp-->
+      <CompileAs>Default</CompileAs>
+    </NuGetExConnentFiles>
+  </ItemGroup> 
+</Project>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata minClientVersion="4.0">
+    <id>$id$</id>
+    <version>1.7.2</version>
+    <authors>Baptiste Lepilleur</authors>
+    <copyright>Copyright Baptiste Lepilleur</copyright>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/open-source-parsers/jsoncpp</projectUrl>
+    <summary>$summary$</summary>
+    <description>对应官方版本：1.7.2
+$description$</description>
+    <tags>native nativepackage</tags>
+    <releaseNotes>
+        * We have clang tests but for some reason did not see this warning.
+        * Otherwise, same as 1.7.1.
+    </releaseNotes>
+    <repository type="git" url="https://github.com/open-source-parsers/jsoncpp.git" branch="master" commit="c8054483f82afc3b4db7efe4e5dc034721649ec8" />
+    <dependencies>
+      <dependency id="YY.NuGet.Import.Helper" version="$ImportHelperVersion$" />
+    </dependencies>
+    <contentFiles>
+      <files include="any\any\$id$.txt" buildAction="Content" copyToOutput="false"/>
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="$Root$\include\**" target="build\native\include" exclude="**\*.txt;**\*.cmake"/>
+    <file src="$Root$\src\lib_json\*" target="build\native\src\lib_json" exclude="**\sconscript;**\*.txt;**\*.h.in"/>      
+    <file src="..\$id$.*" target="build\native"/>
+    <file src="..\..\content.txt" target="contentFiles\any\any\$id$.txt"/>
+    <file src="..\..\content.txt" target="Content\NuGet\$id$.txt"/>
+  </files>
+</package>

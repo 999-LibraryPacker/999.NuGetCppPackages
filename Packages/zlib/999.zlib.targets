@@ -13,6 +13,9 @@
       <PreprocessorDefinitions Condition="'$(zlib_static_ref_mode)' =='dllimport'">ZLIB_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <!--导出为函数-->
       <PreprocessorDefinitions Condition="'$(zlib_static_ref_mode)' =='dllexport'">ZLIB_DLL;ZLIB_INTERNAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+        
+      <!--默认调用约定-->
+      <PreprocessorDefinitions Condition="'$(zlib_static_CallingConvention)' =='WINAPI_WINAPIV'">ZLIB_WINAPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>     
     </ClCompile>
   </ItemDefinitionGroup>
   <!--dllimport 导入时也是不需要编译的直接用导入库即可，我们强制阻止一下编译。-->

@@ -33,5 +33,14 @@
         Name="dllexport"
         DisplayName="向 共享DLL 导出本库（dllexport）"/>
     </EnumProperty>
+
+   <EnumProperty
+     Name="zlib_static_CallingConvention"
+     Category="zlib_static"
+     DisplayName="默认调用约定"
+     Description="调整zilb相关函数使用的调用约定。建议保持默认，仅在需要与某些历史代码做兼容时调整此选项。">
+       <EnumValue Name="" DisplayName="cdecl（默认）" IsDefault="true"/>
+       <EnumValue Name="WINAPI_WINAPIV" DisplayName="WINAPI/WINAPIV（/D ZLIB_WINAPI）" />
+   </EnumProperty>
   </Rule>
 </ProjectSchemaDefinitions>
